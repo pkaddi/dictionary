@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h3>Import files</h3>
+	<p>Files should be in Wordnet format. Index file and a Data file. Sample files can be found <a href="http://wordnet.princeton.edu/">here</a> </p>
+	<form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+		<p>Index File</p>
+		<input type=file name=index>
+		<p>Data File</p>
+		<input type=file name=data>
+		<p><input type="submit" value="Send"></p>
+	</form>
+{% endblock %}

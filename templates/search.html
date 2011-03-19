@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+	<form action="{{ url_for('search') }}" method=get>
+		<p><input type=text name=text size=40><!--
+		--><input type=submit value="Search">
+	</form>
+	<a href="{{ url_for('upload')}}">Import files</a>
+	{% if res.word %}
+		<h3>{{ res.word }} <i>{{ res.pos}}</i></h3>
+		<p>{{ res.def }}</p>
+		<i>Related</i><br>
+		{% for related in res.rel %}
+			<a href="{{ url_for('search', text=related)}}">{{ related }}</a>&nbsp;&nbsp;
+		{% endfor %}
+	{% else %}
+		<h4>Sorry,word not found</h4>
+	{% endif %}
+{% endblock %}
