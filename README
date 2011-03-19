@@ -1,1 +1,4 @@
 A simple dictionary app
+
+Configuration:
+Change UPLOAD_FOLDER in index.py before importing data files
